@@ -1,6 +1,14 @@
 const express = require('express')
+const connectDB = require('./config/db')
 
 const app = express()
+
+// Connect to DB
+connectDB()
+
+// Init Middleware, it need to be added to have the ability to accept body data with the requests
+app.use(express.json({ extended: false }))
+
 
 const PORT = process.env.PORT | 5000
 
